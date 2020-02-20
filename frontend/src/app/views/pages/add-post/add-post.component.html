@@ -1,0 +1,32 @@
+<div class="basic-form">
+
+    <form [formGroup]="addPostForm" (ngSubmit)="onClickSubmit()" id="form" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Title</label>
+                <input type="text" class="form-control" placeholder="Post title" formControlName="title">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Category</label>
+                <input type="text" class="form-control" placeholder="categoriy" formControlName="category">
+            </div>
+
+            <div class="form-group col-md-12">
+                <label>Cover Image</label>
+                <input type="file" accept=".png, .jpg, .jpeg" (change)="handleFileInput($event.target.files)" class="form-control" formControlName="image">
+            </div>
+
+            <div class="form-group col-md-12">
+                <label>Content</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1"
+                          (input)="content = $event.target.value" rows="3"></textarea>
+                <!--<input type="text" class="form-control" placeholder="Enter content" formControlName="content">-->
+            </div>
+
+        </div>
+
+        <button type="submit" id="submit-form2" class="btn btn-dark">Add Event</button>
+    </form>
+
+</div>

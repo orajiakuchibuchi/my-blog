@@ -1,0 +1,36 @@
+<div class="left">
+    <h4>Event details</h4>
+</div>
+<div class="text-right">
+    <div>
+        <button class="btn btn-outline-dark" (click)="addPost()">Add new Post</button>
+    </div>
+</div>
+<div>
+    <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th class="th-sm">ID</th>
+            <th class="th-sm">TITLE</th>
+            <th class="th-sm">IMAGE</th>
+            <th class="th-sm">CATEGORY</th>
+            <th class="th-sm">DATE POSTED</th>
+            <th class="th-sm">DATE PUBLISHED</th>
+            <th class="th-sm">EDIT</th>
+            <th class="th-sm">DELETE</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="posts">
+        <tr *ngFor="let pos of posts">
+            <td>{{pos.id+1}}</td>
+            <td>{{pos.title}}</td>
+            <td><img src="{{pos.image}}" alt="image" style="height: 25px; width: 50px;"></td>
+            <td>{{pos.category}}</td>
+            <td>{{pos.created_at}}</td>
+            <td>{{pos.published_at}}</td>
+            <td><button class="btn-outline-warning" style="border-color: #dcd4c3; color: black;" (click)="editPost()">EDIT</button></td>
+            <td><button class="btn-outline-warning" style="border-color: #dcd4c3; color: black;" (click)="deletePost()">DELETE</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
