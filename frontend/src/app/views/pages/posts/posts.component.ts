@@ -27,6 +27,7 @@ export class PostsComponent implements OnInit {
         if (this.userPosts[i]['published_at'] == null) {
           this.posts[i] = {
             id: i,
+            postid: this.userPosts[i]['id'],
             title: this.userPosts[i]['title'],
             category: this.userPosts[i]['category'],
             created_at: this.userPosts[i]['created_at'],
@@ -48,5 +49,8 @@ export class PostsComponent implements OnInit {
   }
   addPost() {
     this.router.navigateByUrl('addpost');
+  }
+  editPost(id) {
+    return this.router.navigate(['editpost', id]);
   }
 }

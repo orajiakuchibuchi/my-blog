@@ -11,9 +11,10 @@ import { MailModule } from './apps/mail/mail.module';
 import { PostsComponent } from './posts/posts.component';
 import { UserManageComponent } from './user-manage/user-manage.component';
 import { AddPostComponent } from './add-post/add-post.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 @NgModule({
-	declarations: [PostsComponent, UserManageComponent, AddPostComponent],
+	declarations: [PostsComponent, UserManageComponent, AddPostComponent, EditPostComponent],
 	exports: [],
 	imports: [
 		CommonModule,

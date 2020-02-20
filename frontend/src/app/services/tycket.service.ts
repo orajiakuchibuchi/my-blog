@@ -38,8 +38,8 @@ export class TycketService {
   addcategory(data) {
     return this.http.post(`${this.baseUrl}/addcategory`, data);
   }
-  updateevent(data) {
-    return this.http.post(`${this.baseUrl}/updatevent`, data);
+  updatepost(data) {
+    return this.http.post(`${this.baseUrl}/updatepost`, data);
   }
   moodifyCategory(data) {
     return this.http.post(`${this.baseUrl}/modifyCategory`, data);
@@ -71,8 +71,8 @@ export class TycketService {
   allEvent(){
     return this.http.get(`${this.baseUrl}/allEvent`);
   }
-  eventInfo(data) {
-    return this.http.get(`${this.baseUrl}/eventinfo/${data}`);
+  postInfo(data) {
+    return this.http.get(`${this.baseUrl}/postInfo/${data}`);
   }
   imagebaseUrl(data) {
     return (this.imageUrl + data);

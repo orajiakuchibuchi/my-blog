@@ -17,7 +17,7 @@
             <th class="th-sm">DATE POSTED</th>
             <th class="th-sm">DATE PUBLISHED</th>
             <th class="th-sm">EDIT</th>
-            <th class="th-sm">DELETE</th>
+            <th class="th-sm">READER VIEW</th>
         </tr>
         </thead>
         <tbody *ngIf="posts">
@@ -28,8 +28,20 @@
             <td>{{pos.category}}</td>
             <td>{{pos.created_at}}</td>
             <td>{{pos.published_at}}</td>
-            <td><button class="btn-outline-warning" style="border-color: #dcd4c3; color: black;" (click)="editPost()">EDIT</button></td>
-            <td><button class="btn-outline-warning" style="border-color: #dcd4c3; color: black;" (click)="deletePost()">DELETE</button></td>
+            <td>
+                <button class="btn-outline-warning"
+                        style="border-color: #dcd4c3; color: black;"
+                        (click)="editPost(pos.postid)">
+                    EDIT
+                </button>
+            </td>
+            <td>
+                <button class="btn-outline-warning"
+                        style="border-color: #dcd4c3; color: black;"
+                        (click)="deletePost()">
+                    READ
+                </button>
+            </td>
         </tr>
         </tbody>
     </table>
