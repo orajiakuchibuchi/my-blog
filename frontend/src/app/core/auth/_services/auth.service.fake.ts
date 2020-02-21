@@ -78,7 +78,6 @@ export class AuthService {
                 // console.log(result);
                 this.list = UsersTable.users;
                 this.list.push(this.usermodel);
-                console.log(this.list);
             }
         );
 
@@ -87,7 +86,6 @@ export class AuthService {
                 if (result.length <= 0) {
                     return null;
                 }
-                console.log(result);
 
                 const user = find(this.list, (item: User) => {
                     return (item.email.toLowerCase() === email.toLowerCase() && item.password === password);

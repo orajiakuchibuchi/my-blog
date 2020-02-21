@@ -24,6 +24,11 @@ export class DashboardComponent implements OnInit {
 	widget4_3: Widget4Data;
 	widget4_4: Widget4Data;
 
+	ERRORMESSAGE: any = '';
+	unpublished: any = [];
+	published: any = [];
+	unpublishedCounter: number = 0;
+	publishedCounter: number = 0;
 	public userdata = this.service.getUserData();
 	public user: any;
 	public userInfo: any;
@@ -32,26 +37,29 @@ export class DashboardComponent implements OnInit {
 	public eventNum = 0;
 	public totalTicket = 0;
 	public ticketSold = 0;
-	constructor(private layoutConfigService: LayoutConfigService, private service: TycketService, private route: ActivatedRoute, private  router: Router) {
-	}
+	constructor(private layoutConfigService: LayoutConfigService,
+				private service: TycketService,
+				private route: ActivatedRoute,
+				private  router: Router
+				){}
 
 	ngOnInit(): void {
 		this.user = this.userdata['email'];
-		console.log(this.user);
-		this.service.getUserInfo(this.user).subscribe(data => {
-			this.userInfo = data;
-			// console.log(this.userInfo['email']);
-			// console.log(this.userInfo);
-			this.service.getevent(this.userInfo['email']).subscribe(res => {
-				this.events = res;
-				this.eventNum = this.events.length;
-				console.log(this.events);
-				// console.log(this.eventNum);
-				for (let i = 0; i < this.eventNum; i++) {
-					this.totalTicket += this.events[i]['ticketNo'];
-					// console.log(this.totalTicket);
+		this.service.getAllPosts(this.user).subscribe( res => {
+			if (res['status'] !== '200') {
+				this.ERRORMESSAGE = res['error'];
+			} else {
+				let posts = res['response'];
+				for (let i = 0; i < posts.length; i++) {
+					if (posts[i]['published_at'] == null) {
+						this.unpublishedCounter = this.unpublishedCounter + 1;
+						this.unpublished.push(posts[i]);
+					} else {
+						this.publishedCounter = this.publishedCounter + 1;
+						this.unpublished.push(posts[i]);
+					}
 				}
-			});
+			}
 		});
 		this.chartOptions1 = {
 			data: [10, 14, 18, 11, 9, 12, 14, 17, 18, 14],

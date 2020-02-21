@@ -7,7 +7,7 @@ export class MenuConfig {
 					title: 'Dashboards',
 					root: true,
 					alignment: 'left',
-					page: '/dashboard',
+					page: 'admin/dashboard',
 					translate: 'MENU.DASHBOARD',
 				},
 				{
@@ -15,20 +15,20 @@ export class MenuConfig {
 					root: true,
 					bullet: 'dot',
 					icon: 'flaticon2-list-2',
-					page: '/usermanagement'
+					page: 'admin/usermanagement'
 				},
 				{
 					title: 'Posts',
 					root: true,
 					bullet: 'dot',
 					icon: 'flaticon2-list-2',
-					page: '/posts',
+					page: 'admin/posts',
 					toggle: 'click',
 					submenu: [
 						{
 						title: 'Published Posts',
 						bullet: 'dot',
-						page: '/posts',
+						page: 'admin/posts',
 						icon: 'flaticon2-list-2'
 						},
 						{
@@ -412,7 +412,7 @@ export class MenuConfig {
 					title: 'Dashboard',
 					root: true,
 					icon: 'flaticon2-architecture-and-city',
-					page: '/dashboard',
+					page: 'admin/dashboard',
 					translate: 'MENU.DASHBOARD',
 					bullet: 'dot',
 				},
@@ -421,26 +421,26 @@ export class MenuConfig {
 					root: true,
 					bullet: 'dot',
 					icon: 'flaticon2-list-2',
-					page: '/usermanagement'
+					page: 'admin/usermanagement'
 				},
 				{
 					title: 'Posts',
 					root: true,
 					bullet: 'dot',
 					icon: 'flaticon2-list-2',
-					page: '/posts',
+					page: 'admin/posts',
 					toggle: 'click',
 					submenu: [
 						{
 							title: 'Published Posts',
 							bullet: 'dot',
-							page: '/posts',
+							page: 'admin/posts',
 							icon: 'flaticon2-list-2'
 						},
 						{
 							title: 'Unpublished Posts',
 							bullet: 'dot',
-							page: '/unpublished',
+							page: 'admin/unpublished',
 							icon: 'flaticon2-list-2'
 						}
 					]

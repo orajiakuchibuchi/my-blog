@@ -68,7 +68,7 @@ export class EditPostComponent implements OnInit {
         return;
       }
       console.log(res['response']);
-      this.router.navigateByUrl('posts');
+      this.router.navigateByUrl('admin/posts');
     });
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TycketService} from "../../../services/tycket.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'kt-add-post',
@@ -15,7 +16,13 @@ export class AddPostComponent implements OnInit {
   fileToUpload: File = null;
   published: boolean = false;
   public content;
-  constructor(private formBuilder: FormBuilder, private service: TycketService) { }
+  ERRORMESSAGE: any = '';
+  SUCCESSMESSAGE: any = '';
+
+  constructor(private formBuilder: FormBuilder,
+              private service: TycketService,
+              private route: Router
+              ) { }
 
   ngOnInit() {
     this.addPostForm = this.formBuilder.group({
@@ -25,12 +32,10 @@ export class AddPostComponent implements OnInit {
     });
     this.user = this.service.getUserData();
     this.user = this.user['email'];
-    // console.log(this.user);
   }
 
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
-    console.log(this.fileToUpload);
   }
   publishToggle(){
     this.published = !this.published;
@@ -53,7 +58,18 @@ export class AddPostComponent implements OnInit {
       return;
     }
     // console.log(this.addEventForm);
-    this.service.addpost(formData).subscribe();
+    this.service.addpost(formData).subscribe(res => {
+      if (res['status'] !== '200') {
+        this.ERRORMESSAGE = res['error'];
+      } else {
+        this.SUCCESSMESSAGE = res['message'];
+        if (this.published) {
+          this.route.navigateByUrl('/admin/posts');
+        } else {
+          this.route.navigateByUrl('/admin/unpublished');
+        }
+      }
+    });
   }
 
 

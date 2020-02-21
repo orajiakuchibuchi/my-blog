@@ -42,9 +42,9 @@ export class PostsComponent implements OnInit {
     });
   }
   addPost() {
-    this.router.navigateByUrl('addpost');
+    this.router.navigateByUrl('/admin/addpost');
   }
   editPost(id) {
-    return this.router.navigate(['editpost', id]);
+    return this.router.navigate(['/admin/editpost', id]);
   }
 }

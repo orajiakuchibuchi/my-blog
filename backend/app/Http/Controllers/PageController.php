@@ -27,6 +27,7 @@ class PageController extends Controller
         if($validator->fails()){
             $error = $validator->errors();
             return response()->json([
+                'status' => '500',
                 'error' => $error
                 ]);
         }else{
@@ -58,11 +59,13 @@ class PageController extends Controller
                 }
                 $post->save();
                 return response()->json([
-                    'success' => '200',
+                    'status' => '200',
+                    'message' => 'Post successfully Added',
                     'response' => $post
                 ]);
             }else {
                 return response()->json([
+                    'status' => '500',
                     'error' => 'add image'
                 ]);
             }
@@ -73,11 +76,12 @@ class PageController extends Controller
         $post = Post::where('belongs_to', $id)->get();
         if(!$post){
             return response()->json([
+                'status' => '500',
                 'error' => 'you have no post yet'
             ]);
         }
         return response()->json([
-            'success' => '200',
+            'status' => '200',
             'response' => $post
         ]);
     }

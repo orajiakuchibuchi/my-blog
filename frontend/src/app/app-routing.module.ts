@@ -11,28 +11,32 @@ import {UserManageComponent} from "./views/pages/user-manage/user-manage.compone
 import {AddPostComponent} from "./views/pages/add-post/add-post.component";
 import {EditPostComponent} from "./views/pages/edit-post/edit-post.component";
 import {UnpublishedComponent} from "./views/pages/unpublished/unpublished.component";
+import {ClientComponent} from "./views/pages/client/client.component";
 
 const routes: Routes = [
+	{path: '',
+	 component: ClientComponent
+	},
 	{path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
 	{
-		path: '',
+		path: 'admin',
 		component: BaseComponent,
 		canActivate: [AuthGuard],
 		children: [
 			{
-				path: 'posts',
+				path: 'admin/posts',
 				component: PostsComponent
 			},
 			{
-				path: 'unpublished',
+				path: 'admin/unpublished',
 				component: UnpublishedComponent
 			},
 			{
-				path: 'addpost',
+				path: 'admin/addpost',
 				component: AddPostComponent
 			},
 			{
-				path: 'editpost/:id',
+				path: 'admin/editpost/:id',
 				component: EditPostComponent
 			},
 			{

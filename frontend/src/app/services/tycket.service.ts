@@ -71,11 +71,11 @@ export class TycketService {
   getevent(data) {
     return this.http.get(`${this.baseUrl}/modifyevent/${data}`);
   }
-  getUserInfo(data){
-    return this.http.get(`${this.baseUrl}/userInfo/${data}`)
+  getUserInfo(data) {
+    return this.http.get(`${this.baseUrl}/userInfo/${data}`);
   }
   getBelongingTicket(data) {
-    return this.http.get(`${this.baseUrl}/yourticket/${data}`)
+    return this.http.get(`${this.baseUrl}/yourticket/${data}`);
   }
   allEvent(){
     return this.http.get(`${this.baseUrl}/allEvent`);
@@ -119,7 +119,6 @@ export class TycketService {
       // 'name' : localStorage.getItem('name'),
       'email' : localStorage.getItem('email')
     };
-    console.log(userData);
     return userData;
   }
   clearlLocalStorage(){

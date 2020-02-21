@@ -38,10 +38,10 @@ export class UnpublishedComponent implements OnInit {
     });
   }
   addPost() {
-    this.router.navigateByUrl('addpost');
+    this.router.navigateByUrl('/admin/addpost');
   }
   editPost(id) {
-    return this.router.navigate(['editpost', id]);
+    return this.router.navigate(['/admin/editpost', id]);
   }
   publish(data) {
     if(confirm('Ready to publish?')){

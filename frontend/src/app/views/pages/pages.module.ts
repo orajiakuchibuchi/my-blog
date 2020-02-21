@@ -14,9 +14,14 @@ import { AddPostComponent } from './add-post/add-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { UnpublishedComponent } from './unpublished/unpublished.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ClientComponent } from './client/client.component';
+import { HeaderComponent } from './client/header/header.component';
+import { FooterComponent } from './client/footer/footer.component';
+import { RelatedPostComponent } from './client/related-post/related-post.component';
+import { GetInTouchComponent } from './client/get-in-touch/get-in-touch.component';
 
 @NgModule({
-	declarations: [PostsComponent, UserManageComponent, AddPostComponent, EditPostComponent, UnpublishedComponent, ConfirmationDialogComponent],
+	declarations: [PostsComponent, UserManageComponent, AddPostComponent, EditPostComponent, UnpublishedComponent, ConfirmationDialogComponent, ClientComponent, HeaderComponent, FooterComponent, RelatedPostComponent, GetInTouchComponent],
 	exports: [],
 	imports: [
 		CommonModule,
