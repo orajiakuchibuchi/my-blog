@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use File;
 
@@ -51,6 +53,9 @@ class PageController extends Controller
 
                 $post['image'] = $path;
 
+                if(isset($data['publish'])){
+                    $post['published_at'] = Carbon::now();
+                }
                 $post->save();
                 return response()->json([
                     'success' => '200',
@@ -66,6 +71,19 @@ class PageController extends Controller
     public function getAllPost($email){
         $id = User::where('email', $email)->first()->id;
         $post = Post::where('belongs_to', $id)->get();
+        if(!$post){
+            return response()->json([
+                'error' => 'you have no post yet'
+            ]);
+        }
+        return response()->json([
+            'success' => '200',
+            'response' => $post
+        ]);
+    }
+    public function getUnpublished($email){
+        $id = User::where('email', $email)->first()->id;
+        $post = Post::where('belongs_to', $id)->where('published_at', null)->get();
         if(!$post){
             return response()->json([
                 'error' => 'you have no post yet'
@@ -107,7 +125,9 @@ class PageController extends Controller
                 //Upload Image
                 $path = $file[0]->storeAs('image', $fileNameToStore);
                 $file[0]->move('storage/image', $fileNameToStore);
-                File::delete(public_path('storage/image'.$isExist['image']));
+                Storage::disk('public')->delete("storage/image" . $isExist['image']);
+//                Storage::delete('storage/image' . $isExist['image']);
+//                File::delete(public_path('storage/image'.$isExist['image']));
                 Post::where('id', $postid)->update([
                     'title' => $data['title'],
                     'category' => $data['category'],
@@ -134,5 +154,40 @@ class PageController extends Controller
                 'error'=> 'post does not exist'
             ]);
         }
+    }
+
+    public function deletePost($id){
+        $post = Post::where('id',$id)->first();
+//        dd($post);
+        if(!$post){
+            return response()->json([
+                'status' => '500',
+                'error' => 'post not found'
+            ]);
+        }
+        Post::where('id', $id)->delete();
+        Storage::delete($post['image']);
+        return response()->json([
+            'status'=> '200',
+            'response'=> 'Post successfully deleted'
+        ]);
+    }
+    public function publishPost($id){
+        $post = Post::where('id', $id)->first();
+        if(!$post){
+            return response()->json([
+                'status' => '500',
+                'error' => 'post not found'
+            ]);
+        }
+
+//        dd(Carbon::now());
+        Post::where('id', $id)->update([
+            'published_at' => Carbon::now()
+        ]);
+        return response()->json([
+            'status' => '200',
+            'response' => 'successfuly published post'
+        ]);
     }
 }

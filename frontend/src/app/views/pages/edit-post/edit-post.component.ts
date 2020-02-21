@@ -60,6 +60,16 @@ export class EditPostComponent implements OnInit {
     this.service.updatepost(formData).subscribe();
     return this.router.navigateByUrl('posts');
   }
-
+  deletePost() {
+    console.log(this.postInfo['id']);
+    this.service.deletepost(this.postInfo['id']).subscribe(res => {
+      if (res['status'] === '500') {
+        console.log(res['error']);
+        return;
+      }
+      console.log(res['response']);
+      this.router.navigateByUrl('posts');
+    });
+  }
 
 }

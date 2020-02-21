@@ -41,6 +41,12 @@ export class TycketService {
   updatepost(data) {
     return this.http.post(`${this.baseUrl}/updatepost`, data);
   }
+  deletepost(id) {
+    return this.http.get(`${this.baseUrl}/deletepost/${id}`);
+  }
+  publish(id) {
+    return this.http.get(`${this.baseUrl}/publishpost/${id}`);
+  }
   moodifyCategory(data) {
     return this.http.post(`${this.baseUrl}/modifyCategory`, data);
   }
@@ -49,6 +55,9 @@ export class TycketService {
   }
   getAllPosts(email) {
     return this.http.get(`${this.baseUrl}/getallposts/${email}`);
+  }
+  getUnpublishedPost(email) {
+    return this.http.get(`${this.baseUrl}/getunpublished/${email}`);
   }
   deleteEvent(id) {
     return this.http.get(`${this.baseUrl}/deleteEvent/${id}`);

@@ -27,7 +27,11 @@
             <td><img src="{{pos.image}}" alt="image" style="height: 25px; width: 50px;"></td>
             <td>{{pos.category}}</td>
             <td>{{pos.created_at}}</td>
-            <td>{{pos.published_at}}</td>
+            <td><label class="switch">
+                <input type="checkbox" (click)="publish(pos.postid)">
+                <span class="slider round"></span>
+            </label>
+            </td>
             <td>
                 <button class="btn-outline-warning"
                         style="border-color: #dcd4c3; color: black;"

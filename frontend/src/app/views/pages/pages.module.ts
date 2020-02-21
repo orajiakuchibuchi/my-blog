@@ -12,9 +12,11 @@ import { PostsComponent } from './posts/posts.component';
 import { UserManageComponent } from './user-manage/user-manage.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { UnpublishedComponent } from './unpublished/unpublished.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
-	declarations: [PostsComponent, UserManageComponent, AddPostComponent, EditPostComponent],
+	declarations: [PostsComponent, UserManageComponent, AddPostComponent, EditPostComponent, UnpublishedComponent, ConfirmationDialogComponent],
 	exports: [],
 	imports: [
 		CommonModule,

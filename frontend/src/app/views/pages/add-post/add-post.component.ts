@@ -13,6 +13,7 @@ export class AddPostComponent implements OnInit {
   imageUrl = '';
   user: any;
   fileToUpload: File = null;
+  published: boolean = false;
   public content;
   constructor(private formBuilder: FormBuilder, private service: TycketService) { }
 
@@ -31,6 +32,10 @@ export class AddPostComponent implements OnInit {
     this.fileToUpload = file.item(0);
     console.log(this.fileToUpload);
   }
+  publishToggle(){
+    this.published = !this.published;
+    console.log(this.published);
+  }
   onClickSubmit() {
     let formData = new FormData();
     formData.append('title', this.addPostForm.controls.title.value);
@@ -38,6 +43,9 @@ export class AddPostComponent implements OnInit {
     formData.append('content', this.content);
     formData.append('image[]', this.fileToUpload, this.fileToUpload.name);
     formData.append('belongs_to', this.user);
+    if(this.published === true) {
+      formData.append('publish', 'true');
+    }
     console.log(this.addPostForm.controls);
     this.submitted = true;
     if (this.addPostForm.invalid) {

@@ -1,36 +1,46 @@
 <div class="container-fluid" *ngIf="error">
     <h5>{{error}}</h5>
 </div>
-<div class="basic-form" *ngIf="postInfo">
-
-    <form [formGroup]="editPost" (ngSubmit)="onClickSubmit()" id="form" method="post" enctype="multipart/form-data">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Title</label>
-                <input type="text" class="form-control" placeholder="name" value="{{postInfo['title']}}" formControlName="title" >
-            </div>
-
-            <div class="form-group col-md-6">
-                <label>Category</label>
-                <input type="text" class="form-control" placeholder="1234 Main St" value="{{postInfo['category']}}" formControlName="category">
-            </div>
-
-            <div class="form-group col-md-12">
-                <label>Content</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1"
-                          (input)="content = $event.target.value" rows="3">{{postInfo['content']}}</textarea>
-                <!--<input type="text" class="form-control" placeholder="Enter content" formControlName="content">-->
-            </div>
-
-            <div class="form-group col-md-6">
-                <label>Header Image</label>
-                <input type="file" accept=".png, .jpg, .jpeg" (change)="handleFileInput($event.target.files)" class="form-control"  formControlName="image">
-                <a href="{{imageUrl}}" target="_blank" >View current image</a>
-            </div>
-
+<div *ngIf="!error">
+    <div class="left">
+        <h4>Edit Post</h4>
+    </div>
+    <div class="text-right">
+        <div>
+            <button type="submit" id="submit-form2" class="btn btn-dark" (click)="deletePost()">Delete Post</button>
         </div>
+    </div>
+    <div class="basic-form" *ngIf="postInfo">
 
-        <button type="submit" id="submit-form2" class="btn btn-dark">Update Event</button>
-    </form>
+        <form [formGroup]="editPost" (ngSubmit)="onClickSubmit()" id="form" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Title</label>
+                    <input type="text" class="form-control" placeholder="name" value="{{postInfo['title']}}" formControlName="title" >
+                </div>
 
+                <div class="form-group col-md-6">
+                    <label>Category</label>
+                    <input type="text" class="form-control" placeholder="1234 Main St" value="{{postInfo['category']}}" formControlName="category">
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label>Content</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1"
+                              (input)="content = $event.target.value" rows="3">{{postInfo['content']}}</textarea>
+                    <!--<input type="text" class="form-control" placeholder="Enter content" formControlName="content">-->
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Header Image</label>
+                    <input type="file" accept=".png, .jpg, .jpeg" (change)="handleFileInput($event.target.files)" class="form-control"  formControlName="image">
+                    <a href="{{imageUrl}}" target="_blank" >View current image</a>
+                </div>
+            </div>
+
+            <button type="submit" id="submit-form2" class="btn btn-dark">Update Post</button>
+
+        </form>
+
+    </div>
 </div>

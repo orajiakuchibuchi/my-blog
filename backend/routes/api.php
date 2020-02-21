@@ -19,6 +19,9 @@ Route::group([
 ], function () {
     Route::post('/addpost', 'PageController@addpost');
     Route::get('/getallposts/{email}', 'PageController@getAllPost');
+    Route::get('/getunpublished/{email}', 'PageController@getUnpublished');
     Route::get('/postInfo/{id}', 'PageController@postInfo');
+    Route::get('/deletepost/{id}', 'PageController@deletePost');
+    Route::get('/publishpost/{id}', 'PageController@publishPost');
     Route::post('/updatepost', 'PageController@updatePost');
 });

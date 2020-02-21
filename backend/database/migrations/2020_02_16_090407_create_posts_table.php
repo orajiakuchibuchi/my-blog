@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('image');
             $table->string('category');
             $table->string('content');
-            $table->date('published_at')->nullable(true);
+            $table->dateTime('published_at')->nullable(true);
             $table->integer('belongs_to');
             $table->timestamps();
         });

@@ -10,6 +10,7 @@ import {PostsComponent} from "./views/pages/posts/posts.component";
 import {UserManageComponent} from "./views/pages/user-manage/user-manage.component";
 import {AddPostComponent} from "./views/pages/add-post/add-post.component";
 import {EditPostComponent} from "./views/pages/edit-post/edit-post.component";
+import {UnpublishedComponent} from "./views/pages/unpublished/unpublished.component";
 
 const routes: Routes = [
 	{path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
@@ -21,6 +22,10 @@ const routes: Routes = [
 			{
 				path: 'posts',
 				component: PostsComponent
+			},
+			{
+				path: 'unpublished',
+				component: UnpublishedComponent
 			},
 			{
 				path: 'addpost',

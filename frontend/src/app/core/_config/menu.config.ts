@@ -440,7 +440,7 @@ export class MenuConfig {
 						{
 							title: 'Unpublished Posts',
 							bullet: 'dot',
-							page: '/draft',
+							page: '/unpublished',
 							icon: 'flaticon2-list-2'
 						}
 					]
