@@ -32,11 +32,11 @@ const routes: Routes = [
 				component: UnpublishedComponent
 			},
 			{
-				path: 'admin/addpost',
+				path: 'addpost',
 				component: AddPostComponent
 			},
 			{
-				path: 'admin/editpost/:id',
+				path: 'editpost/:id',
 				component: EditPostComponent
 			},
 			{
