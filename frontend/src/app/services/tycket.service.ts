@@ -59,6 +59,9 @@ export class TycketService {
   getUnpublishedPost(email) {
     return this.http.get(`${this.baseUrl}/getunpublished/${email}`);
   }
+  getpublishedPost(email) {
+    return this.http.get(`${this.baseUrl}/getpublished/${email}`);
+  }
   deleteEvent(id) {
     return this.http.get(`${this.baseUrl}/deleteEvent/${id}`);
   }

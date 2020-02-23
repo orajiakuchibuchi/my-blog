@@ -20,6 +20,7 @@ Route::group([
     Route::post('/addpost', 'PageController@addpost');
     Route::get('/getallposts/{email}', 'PageController@getAllPost');
     Route::get('/getunpublished/{email}', 'PageController@getUnpublished');
+    Route::get('/getpublished/{email}', 'PageController@getpublished');
     Route::get('/postInfo/{id}', 'PageController@postInfo');
     Route::get('/deletepost/{id}', 'PageController@deletePost');
     Route::get('/publishpost/{id}', 'PageController@publishPost');

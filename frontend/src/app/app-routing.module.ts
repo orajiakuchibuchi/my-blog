@@ -12,10 +12,14 @@ import {AddPostComponent} from "./views/pages/add-post/add-post.component";
 import {EditPostComponent} from "./views/pages/edit-post/edit-post.component";
 import {UnpublishedComponent} from "./views/pages/unpublished/unpublished.component";
 import {ClientComponent} from "./views/pages/client/client.component";
+import {ReadPostComponent} from "./views/pages/client/read-post/read-post.component";
 
 const routes: Routes = [
 	{path: '',
 	 component: ClientComponent
+	},
+	{path: 'post',
+		component: ReadPostComponent
 	},
 	{path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
 	{

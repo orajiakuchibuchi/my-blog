@@ -1,11 +1,16 @@
 <div class="left">
     <h4>Post details</h4>
 </div>
-<div class="text-right">
-    <div>
-        <button class="btn btn-outline-dark" (click)="addPost()">Add new Post</button>
+<div class="row">
+    <div class="col-md-6 text-left">
+        <label for="typeahead-basic">Search for a Event:</label>
+        <input id="typeahead-basic" type="text" class="form-control" style="width: 50%" (change)="onChange($event.target.value.toLowerCase())" [(ngModel)]="searchPost" />
+    </div>
+    <div class="col-md-6 text-right">
+            <button class="btn btn-outline-dark" style="margin-top: 20px" (click)="addPost()">Add new Post</button>
     </div>
 </div>
+
 <div>
     <table class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>

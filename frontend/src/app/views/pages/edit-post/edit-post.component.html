@@ -26,9 +26,11 @@
 
                 <div class="form-group col-md-12">
                     <label>Content</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                              (input)="content = $event.target.value" rows="3">{{postInfo['content']}}</textarea>
+                    <!--<textarea class="form-control" id="exampleFormControlTextarea1"-->
+                              <!--(input)="content = $event.target.value" rows="3">{{postInfo['content']}}</textarea>-->
                     <!--<input type="text" class="form-control" placeholder="Enter content" formControlName="content">-->
+                    <ckeditor (change)="onChange($event)" [editor]="Editor"  data="{{postInfo['content']}}"></ckeditor>
+
                 </div>
 
                 <div class="form-group col-md-6">

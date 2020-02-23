@@ -14,6 +14,7 @@ class PageController extends Controller
 {
     //
     public function addpost(Request $request){
+//        dd($request->all);
         $rules = [
             'title' => 'required',
             'category' => 'required',
@@ -21,6 +22,7 @@ class PageController extends Controller
             'image' => 'required'
         ];
         $data = $request->all();
+//        dd($data);
         $userId = User::where('email', $data['belongs_to'])->first()->id;
 //        dd($userId);
         $validator = Validator::make($data, $rules);
@@ -88,6 +90,20 @@ class PageController extends Controller
     public function getUnpublished($email){
         $id = User::where('email', $email)->first()->id;
         $post = Post::where('belongs_to', $id)->where('published_at', null)->get();
+        if(!$post){
+            return response()->json([
+                'error' => 'you have no post yet'
+            ]);
+        }
+        return response()->json([
+            'success' => '200',
+            'response' => $post
+        ]);
+    }
+    public function getpublished($email){
+        $id = User::where('email', $email)->first()->id;
+        $post = Post::where('belongs_to', $id)->where('published_at', '!=', null)->get();
+//        dd($post);
         if(!$post){
             return response()->json([
                 'error' => 'you have no post yet'

@@ -10,7 +10,6 @@
         </label>
     </div>
 </div>
-<div>
 <div class="basic-form">
 
     <form [formGroup]="addPostForm" (ngSubmit)="onClickSubmit()" id="form" method="post" enctype="multipart/form-data">
@@ -32,14 +31,13 @@
 
             <div class="form-group col-md-12">
                 <label>Content</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1"
-                          (input)="content = $event.target.value" rows="3"></textarea>
-                <!--<input type="text" class="form-control" placeholder="Enter content" formControlName="content">-->
+                <!--<textarea class="form-control" id="exampleFormControlTextarea1" (input)="content = $event.target.value" rows="3"></textarea>-->
+                <ckeditor (change)="onChange($event)" [editor]="Editor"  data="<p>Post your content!</p>"></ckeditor>
             </div>
 
+            <button type="submit" id="submit-form2" class="btn btn-dark">Add Event</button>
         </div>
-
-        <button type="submit" id="submit-form2" class="btn btn-dark">Add Event</button>
     </form>
+
 
 </div>

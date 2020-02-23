@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TycketService} from "../../../services/tycket.service";
 import {Router} from "@angular/router";
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'kt-add-post',
@@ -18,7 +19,8 @@ export class AddPostComponent implements OnInit {
   public content;
   ERRORMESSAGE: any = '';
   SUCCESSMESSAGE: any = '';
-
+  public Editor = ClassicEditor;
+  editorData: any;
   constructor(private formBuilder: FormBuilder,
               private service: TycketService,
               private route: Router
@@ -33,6 +35,9 @@ export class AddPostComponent implements OnInit {
     this.user = this.service.getUserData();
     this.user = this.user['email'];
   }
+  public onChange( { editor } ) {
+    this.editorData = editor.getData();
+  }
 
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
@@ -45,7 +50,7 @@ export class AddPostComponent implements OnInit {
     let formData = new FormData();
     formData.append('title', this.addPostForm.controls.title.value);
     formData.append('category', this.addPostForm.controls.category.value);
-    formData.append('content', this.content);
+    formData.append('content', this.editorData);
     formData.append('image[]', this.fileToUpload, this.fileToUpload.name);
     formData.append('belongs_to', this.user);
     if(this.published === true) {
@@ -57,7 +62,6 @@ export class AddPostComponent implements OnInit {
       console.log('invaliddd');
       return;
     }
-    // console.log(this.addEventForm);
     this.service.addpost(formData).subscribe(res => {
       if (res['status'] !== '200') {
         this.ERRORMESSAGE = res['error'];
