@@ -11,7 +11,7 @@
 <!--header-ends-->
 
 <!--top-post-cover-->
-<div *ngIf="posts[0].image">
+<div>
     <div class="hero-area height-600 bg-img background-overlay" [ngStyle]="{'background-image':'url('+posts[0].image+')'}">
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
@@ -19,7 +19,7 @@
                     <div class="single-blog-title text-center">
                         <!-- Catagory -->
                         <div class="post-cta"><a href="#">{{posts[0].category}}</a></div>
-                        <h3>{{posts[0].title}}</h3>
+                        <h3 class="post-title"><a (click)="getPost(posts[0])">{{posts[0].title}}</a></h3>
                     </div>
                 </div>
             </div>
@@ -34,148 +34,200 @@
     <div class="container">
         <div class="row justify-content-center">
             <!-- ============= Post Content Area ============= -->
-            <div class="col-12 col-lg-8">
-                <div class="single-blog-content mb-100">
-                    <!-- Post Meta -->
-                    <div class="post-meta">
-                        <p><a href="#" class="post-author">Chibuchi orajiaku</a> on <a href="#" class="post-date">{{posts[0].published_at}}</a></p>
-                    </div>
-                    <!-- Post Content -->
-                    <div class="post-content">
-                        {{posts[0].content}}
-                        <blockquote class="mb-30">
-                            <h6>Aliquam auctor lacus a dapibus pulvinar. Morbi in elit erat. Quisque et augue nec tortor blandit hendrerit eget sit amet sapien. Curabitur at tincidunt metus, quis porta ex. Duis lacinia metus vel eros cursus pretium eget.</h6>
-                            <div class="post-author">
-                                <p>Robert Morgan</p>
+            <div class="world-latest-articles">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="title">
+                            <h5>Latest Articles</h5>
+                        </div>
+
+                        <!-- Single Blog Post -->
+                        <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.2s">
+                            <!-- Post Thumbnail -->
+                            <div class="post-thumbnail">
+                                <img src="../../../../assets/client-assets/img/blog-img/b18.jpg" alt="">
                             </div>
-                        </blockquote>
-                        <h6>Donec orci dolor, pretium in luctus id, consequat vitae nibh. Quisque hendrerit, lorem sit amet mollis malesuada, urna orci volutpat ex, sed scelerisque nunc velit et massa. Sed maximus id erat vel feugiat. Phasellus bibendum nisi non urna bibendum elementum. Aenean tincidunt nibh vitae ex facilisis ultrices. Integer ornare efficitur ultrices. Integer neque lectus, venenatis at pulvinar quis, aliquet id neque. Mauris ultrices consequat velit, sed dignissim elit posuere in. Cras vitae dictum dui.</h6>
-                        <!-- Post Tags -->
-                        <ul class="post-tags">
-                            <li><a href="#">Manual</a></li>
-                            <li><a href="#">Liberty</a></li>
-                            <li><a href="#">Recommendations</a></li>
-                            <li><a href="#">Interpritation</a></li>
-                        </ul>
-                        <!-- Post Meta -->
-                        <div class="post-meta second-part">
-                            <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <a href="#" class="headline">
+                                    <h5>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h5>
+                                </a>
+                                <p>Pick the yellow peach that looks like a sunset with its red, orange, and pink coat skin, peel it off with your teeth. Sink them into unripened...</p>
+                                <!-- Post Meta -->
+                                <div class="post-meta">
+                                    <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Blog Post -->
+                        <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.3s">
+                            <!-- Post Thumbnail -->
+                            <div class="post-thumbnail">
+                                <img src="../../../../assets/client-assets/img/blog-img/b19.jpg" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <a href="#" class="headline">
+                                    <h5>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h5>
+                                </a>
+                                <p>Pick the yellow peach that looks like a sunset with its red, orange, and pink coat skin, peel it off with your teeth. Sink them into unripened...</p>
+                                <!-- Post Meta -->
+                                <div class="post-meta">
+                                    <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Blog Post -->
+                        <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.4s">
+                            <!-- Post Thumbnail -->
+                            <div class="post-thumbnail">
+                                <img src="../../../../assets/client-assets/img/blog-img/b20.jpg" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <a href="#" class="headline">
+                                    <h5>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h5>
+                                </a>
+                                <p>Pick the yellow peach that looks like a sunset with its red, orange, and pink coat skin, peel it off with your teeth. Sink them into unripened...</p>
+                                <!-- Post Meta -->
+                                <div class="post-meta">
+                                    <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Blog Post -->
+                        <div class="single-blog-post post-style-4 d-flex align-items-center wow fadeInUpBig" data-wow-delay="0.5s">
+                            <!-- Post Thumbnail -->
+                            <div class="post-thumbnail">
+                                <img src="../../../../assets/client-assets/img/blog-img/b21.jpg" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <a href="#" class="headline">
+                                    <h5>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h5>
+                                </a>
+                                <p>Pick the yellow peach that looks like a sunset with its red, orange, and pink coat skin, peel it off with your teeth. Sink them into unripened...</p>
+                                <!-- Post Meta -->
+                                <div class="post-meta">
+                                    <p><a href="#" class="post-author">Katy Liu</a> on <a href="#" class="post-date">Sep 29, 2017 at 9:48 am</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-4">
+                        <div class="post-sidebar-area mb-100">
+                            <!-- Widget Area -->
+                            <div class="sidebar-widget-area">
+                                <h5 class="title">Top Stories</h5>
+                                <div class="widget-content">
+                                    <!-- Single Blog Post -->
+                                    <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumbnail">
+                                            <img src="../../../../../assets/client-assets/img/blog-img/b11.jpg" alt="">
+                                        </div>
+                                        <!-- Post Content -->
+                                        <div class="post-content">
+                                            <a href="#" class="headline">
+                                                <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Single Blog Post -->
+                                    <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumbnail">
+                                            <img src="../../../../../assets/client-assets/img/blog-img/b13.jpg" alt="">
+                                        </div>
+                                        <!-- Post Content -->
+                                        <div class="post-content">
+                                            <a href="#" class="headline">
+                                                <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Single Blog Post -->
+                                    <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumbnail">
+                                            <img src="../../../../../assets/client-assets/img/blog-img/b14.jpg" alt="">
+                                        </div>
+                                        <!-- Post Content -->
+                                        <div class="post-content">
+                                            <a href="#" class="headline">
+                                                <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Single Blog Post -->
+                                    <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumbnail">
+                                            <img src="../../../../../assets/client-assets/img/blog-img/b10.jpg" alt="">
+                                        </div>
+                                        <!-- Post Content -->
+                                        <div class="post-content">
+                                            <a href="#" class="headline">
+                                                <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Single Blog Post -->
+                                    <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumbnail">
+                                            <img src="../../../../../assets/client-assets/img/blog-img/b12.jpg" alt="">
+                                        </div>
+                                        <!-- Post Content -->
+                                        <div class="post-content">
+                                            <a href="#" class="headline">
+                                                <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Widget Area -->
+                            <div class="sidebar-widget-area">
+                                <h5 class="title">Stay Connected</h5>
+                                <div class="widget-content">
+                                    <div class="social-area d-flex justify-content-between">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                                        <a href="#"><i class="fa fa-vimeo"></i></a>
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                        <a href="#"><i class="fa fa-google"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Widget Area -->
+                            <div class="sidebar-widget-area">
+                                <h5 class="title">Today’s Pick</h5>
+                                <div class="widget-content">
+                                    <!-- Single Blog Post -->
+                                    <div class="single-blog-post todays-pick">
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumbnail">
+                                            <img src="../../../../../assets/client-assets/img/blog-img/b22.jpg" alt="">
+                                        </div>
+                                        <!-- Post Content -->
+                                        <div class="post-content px-0 pb-0">
+                                            <a href="#" class="headline">
+                                                <h5>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- ========== Sidebar Area ========== -->
-
-            <div class="col-12 col-md-8 col-lg-4">
-                <div class="post-sidebar-area mb-100">
-                    <!-- Widget Area -->
-                    <div class="sidebar-widget-area">
-                        <h5 class="title">Top Stories</h5>
-                        <div class="widget-content">
-                            <!-- Single Blog Post -->
-                            <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                <!-- Post Thumbnail -->
-                                <div class="post-thumbnail">
-                                    <img src="../../../../../assets/client-assets/img/blog-img/b11.jpg" alt="">
-                                </div>
-                                <!-- Post Content -->
-                                <div class="post-content">
-                                    <a href="#" class="headline">
-                                        <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Single Blog Post -->
-                            <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                <!-- Post Thumbnail -->
-                                <div class="post-thumbnail">
-                                    <img src="../../../../../assets/client-assets/img/blog-img/b13.jpg" alt="">
-                                </div>
-                                <!-- Post Content -->
-                                <div class="post-content">
-                                    <a href="#" class="headline">
-                                        <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Single Blog Post -->
-                            <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                <!-- Post Thumbnail -->
-                                <div class="post-thumbnail">
-                                    <img src="../../../../../assets/client-assets/img/blog-img/b14.jpg" alt="">
-                                </div>
-                                <!-- Post Content -->
-                                <div class="post-content">
-                                    <a href="#" class="headline">
-                                        <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Single Blog Post -->
-                            <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                <!-- Post Thumbnail -->
-                                <div class="post-thumbnail">
-                                    <img src="../../../../../assets/client-assets/img/blog-img/b10.jpg" alt="">
-                                </div>
-                                <!-- Post Content -->
-                                <div class="post-content">
-                                    <a href="#" class="headline">
-                                        <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Single Blog Post -->
-                            <div class="single-blog-post post-style-2 d-flex align-items-center widget-post">
-                                <!-- Post Thumbnail -->
-                                <div class="post-thumbnail">
-                                    <img src="../../../../../assets/client-assets/img/blog-img/b12.jpg" alt="">
-                                </div>
-                                <!-- Post Content -->
-                                <div class="post-content">
-                                    <a href="#" class="headline">
-                                        <h5 class="mb-0">How Did van Gogh’s Turbulent Mind Depict One of the Most</h5>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Widget Area -->
-                    <div class="sidebar-widget-area">
-                        <h5 class="title">Stay Connected</h5>
-                        <div class="widget-content">
-                            <div class="social-area d-flex justify-content-between">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                                <a href="#"><i class="fa fa-vimeo"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-google"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Widget Area -->
-                    <div class="sidebar-widget-area">
-                        <h5 class="title">Today’s Pick</h5>
-                        <div class="widget-content">
-                            <!-- Single Blog Post -->
-                            <div class="single-blog-post todays-pick">
-                                <!-- Post Thumbnail -->
-                                <div class="post-thumbnail">
-                                    <img src="../../../../../assets/client-assets/img/blog-img/b22.jpg" alt="">
-                                </div>
-                                <!-- Post Content -->
-                                <div class="post-content px-0 pb-0">
-                                    <a href="#" class="headline">
-                                        <h5>How Did van Gogh’s Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h5>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--           sidebar-end               -->
         </div>
 
         <!-- ============== Related Post ============== -->

@@ -17,6 +17,9 @@ export class TycketService {
   login(data) {
     return this.http.post(`${this.baseUrl}/auth/login`, data);
   }
+  getPost(id){
+    return this.http.get(`${this.baseUrl}/getpost/${id}`);
+  }
   logout(email) {
     return this.http.get(`${this.baseUrl}/logout/${email}`);
   }
@@ -126,5 +129,16 @@ export class TycketService {
   }
   clearlLocalStorage(){
     localStorage.clear();
+  }
+
+  getstoredPost(){
+    return JSON.parse(localStorage.getItem('post'));
+  }
+  storePost(post){
+    if(this.getstoredPost()){
+      localStorage.removeItem('post');
+      localStorage.setItem('post', JSON.stringify(post));
+    }
+    localStorage.setItem('post', JSON.stringify(post));
   }
 }

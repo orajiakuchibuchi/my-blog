@@ -1269,3 +1269,11 @@ textarea:focus ~ .highlight {
   color: #959595; }
 
 /*# sourceMappingURL=style.css.map */
+
+.post-title > a{
+  font-size: 35px;
+  color: white;
+}
+.post-title > a:hover{
+  color: #ff9313;
+}

@@ -100,6 +100,20 @@ class PageController extends Controller
             'response' => $post
         ]);
     }
+    public function getPost($id){
+//        dd($id);
+        $post = Post::where('id', $id)->first();
+        if(!$post) {
+           return response()->json([
+               'status' => '500',
+               'response' => 'post not found'
+           ]);
+        }
+        return response()->json([
+            'status' => '200',
+            'response' => $post
+        ]);
+    }
     public function getpublished($email){
         $id = User::where('email', $email)->first()->id;
         $post = Post::where('belongs_to', $id)->where('published_at', '!=', null)->get();

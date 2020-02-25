@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TycketService} from "../../../services/tycket.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'kt-client',
@@ -13,7 +14,8 @@ export class ClientComponent implements OnInit {
   images: any = [];
   posts: any = [];
   published: boolean = false;
-  constructor(private service: TycketService) { }
+  constructor(private service: TycketService,
+              private route: Router) { }
 
   ngOnInit() {
     // this.user = this.service.getUserData();
@@ -36,6 +38,10 @@ export class ClientComponent implements OnInit {
       }
     });
     console.log(this.posts);
+  }
+  getPost(data) {
+    this.service.storePost(data);
+    this.route.navigate(['readPost']);
   }
 
 }

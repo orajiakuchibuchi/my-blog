@@ -18,7 +18,7 @@ const routes: Routes = [
 	{path: '',
 	 component: ClientComponent
 	},
-	{path: 'post',
+	{path: 'readPost',
 		component: ReadPostComponent
 	},
 	{path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
